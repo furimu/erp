@@ -7,11 +7,11 @@ def save(value, module):
     try:
         os.mkdir("jsons")
         with open(f'config/jsons/{module}.json', 'w', encoding= 'utf-8') as f:
-        return json.dump(value, f, ensure_ascii=False, indent=4)
+            return json.dump(value, f, ensure_ascii=False, indent=4)
 
     except FileExistsError:
         with open(f'config/jsons/{module}.json', 'w', encoding= 'utf-8') as f:
-        return json.dump(value, f, ensure_ascii=False, indent=4)
+            return json.dump(value, f, ensure_ascii=False, indent=4)
 
 
 def load(module):
