@@ -18,7 +18,7 @@ class Bumper(commands.Cog):
     async def check_bump_time(self):
         try:
             admin = self.bot.get_channel(696591762042650644) 
-            await admin.send("a")
+            
             now = datetime.utcnow() + timedelta(hours=9)
             
             for guild in self.bot.guilds:
