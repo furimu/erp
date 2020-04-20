@@ -17,14 +17,18 @@ class Bumper(commands.Cog):
     @tasks.loop(minutes = 1)
     async def check_bump_time(self):
         try:
+            admin = self.bot.get_channel(696591762042650644) 
+            await admin.send("a")
             now = datetime.utcnow() + timedelta(hours=9)
             
             for guild in self.bot.guilds:
+                await admin.send(guild.name)
                 guild_id = str(guild.id)
 
                 if not self.bump_time.get(guild_id):
                     return
 
+                await admin.send("n")
                 if not self.bump_time[guild_id].get('bump_role'):
                     target = guild.default_role
 
@@ -39,7 +43,7 @@ class Bumper(commands.Cog):
                 else:
                     target = guild.get_role(int(self.bump_time[guild_id]['bump_role']))
 
-                admin = self.bot.get_channel(696591762042650644)
+               
                
                 if self.bump_time[guild_id]['latest_time_h'] != str(f'{now:%H}'):
                     return
