@@ -37,7 +37,7 @@ class Admin(commands.Cog, command_attrs=dict(hidden=True)):
 
 
     @commands.command()
-    async def cc(self, ctx, category: discord.CategoryChannel, name: str):
+    async def cac(self, ctx, category: discord.CategoryChannel, name: str):
         await category.create_text_channel(name=name)
         await ctx.send("ok")
     @commands.command()
