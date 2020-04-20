@@ -138,6 +138,7 @@ class Counter(commands.Cog):
         e = discord.Embed(
             title = str(ctx.guild.member_count),
             description= ',/n'.join(member.mention for member in ctx.guild.members)
+        )
         await ctx.send(embed=e)
     
     @commands.command(aliases = ['rml'])
