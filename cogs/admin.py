@@ -37,7 +37,10 @@ class Admin(commands.Cog, command_attrs=dict(hidden=True)):
 
 
     @commands.command()
-    async def ctx_repeat(self, ctx):
+    async def cc(self, ctx, category: discord.CategoryChannel, name: str):
+        await category.create_text_channel(name=name)
+        await ctx.send("ok")
+async def ctx_repeat(self, ctx):
         if await check.original_command_permissions(ctx) == False:
             return
             
