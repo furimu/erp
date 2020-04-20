@@ -22,7 +22,6 @@ class Bumper(commands.Cog):
             now = datetime.utcnow() + timedelta(hours=9)
             
             for guild in self.bot.guilds:
-                await admin.send(guild.name)
                 guild_id = str(guild.id)
 
                 if not self.bump_time.get(guild_id):
