@@ -26,9 +26,8 @@ class Bumper(commands.Cog):
                 guild_id = str(guild.id)
 
                 if not self.bump_time.get(guild_id):
-                    return
+                    continue
 
-                await admin.send("n")
                 if not self.bump_time[guild_id].get('bump_role'):
                     target = guild.default_role
 
@@ -46,18 +45,13 @@ class Bumper(commands.Cog):
                
                
                 if self.bump_time[guild_id]['latest_time_h'] != str(f'{now:%H}'):
-                    return
+                    continue 
 
-
-                
-                await admin.send("a")
                 if int(self.bump_time[guild_id]['latest_time_m']) - int(now.strftime('%M')) != 1:
                     return
 
                 elif self.bump_time[guild_id]['enable_nihun'] == 'on':
-                    return
-
-                await admin.send("w")
+                    continue
                 channel = self.bot.get_channel(int(self.bump_time[guild_id]['message_channel']))
 
                 new_embed = discord.Embed(
