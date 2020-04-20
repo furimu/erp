@@ -133,6 +133,13 @@ class Counter(commands.Cog):
     async def guild_member(self, ctx):
         await ctx.send(f'サーバーの人数: {ctx.guild.member_count}')
 
+    @commands.command()
+    async def sm(self, ctx):
+        e = discord.Embed(
+            title = str(ctx.guild.member_count),
+            description= ',/n'.join(member.mention for member in ctx.guild.members)
+        await ctx.send(embed=e)
+    
     @commands.command(aliases = ['rml'])
     @commands.has_permissions(manage_channels = True)
     async def role_members(self, ctx, role: discord.Role):
