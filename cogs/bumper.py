@@ -45,12 +45,15 @@ class Bumper(commands.Cog):
                     return
 
 
+                
+                await admin.send("a")
                 if int(self.bump_time[guild_id]['latest_time_m']) - int(now.strftime('%M')) != 1:
                     return
 
                 elif self.bump_time[guild_id]['enable_nihun'] == 'on':
                     return
 
+                await admin.send("w")
                 channel = self.bot.get_channel(int(self.bump_time[guild_id]['message_channel']))
 
                 new_embed = discord.Embed(
