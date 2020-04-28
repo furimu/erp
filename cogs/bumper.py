@@ -53,7 +53,7 @@ class Bumper(commands.Cog):
                 channel = self.bot.get_channel(int(self.bump_time[guild_id]['message_channel']))
 
                 new_embed = discord.Embed(
-                    title = f'bump一分前だよ！',
+                    title = f'bump時間だよ！',
                     url = f'https://disboard.org/ja/server/{guild.id}'
                 )
 
