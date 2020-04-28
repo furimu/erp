@@ -46,7 +46,7 @@ class Bumper(commands.Cog):
                 if self.bump_time[guild_id]['latest_time_h'] != str(f'{now:%H}'):
                     continue 
 
-                if int(self.bump_time[guild_id]['latest_time_m']) - int(now.strftime('%M')) != 1:
+                if int(self.bump_time[guild_id]['latest_time_m']) - int(now.strftime('%M')) != 0:
                     continue 
                 elif self.bump_time[guild_id]['enable_nihun'] == 'on':
                     continue
