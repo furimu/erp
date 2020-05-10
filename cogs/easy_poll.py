@@ -25,6 +25,6 @@ class Easy_Poll(commands.Cog):
         if self.load[str(ctx.guild.id)].get("opt") is None:
             self.load[str(ctx.guild.id)][opt]= None
 
-           self.load[str(ctx.guild.id)][opt]=str(channel.id)
+        self.load[str(ctx.guild.id)][opt]=str(channel.id)
 
         self.save(self.load, "poll_channel")
