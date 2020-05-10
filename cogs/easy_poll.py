@@ -23,10 +23,10 @@ class Easy_Poll(commands.Cog):
         else:
             channel= self.bot.get_channel(int(self.load[str(ctx.guild.id)]["yn"]))
 
-        await channel.send(embed=e)
+        m=await channel.send(embed=e)
 
         for i in [1, 2]:
-            await nreact.
+            await nreact.number_react(m, i)
     @yneasy_poll.error
     async def yn_error(self, ctx, error):
         msg=traceback.format_exc()
