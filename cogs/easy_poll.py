@@ -15,6 +15,14 @@ class Easy_Poll(commands.Cog):
             title= question,
             description= "**1**:はい, **2**:いいえ")
 
+        if self.load[str(ctx.guild.id)].get("yn") is None:
+            channel= ctx.channel
+
+        else:
+            channel= self.bot?get_channel(int(self.load[str(ctx.guild.id)]["yn"])
+
+        await channel.send(embed=e)
+
         
 
     @commands.command(aliases=['pc'])
@@ -22,7 +30,10 @@ class Easy_Poll(commands.Cog):
         if opt is None:
             opt= "global"
 
-        if self.load[str(ctx.guild.id)].get("opt") is None:
+        if opt not in ["global", "yn", "custom"]:
+            return
+
+        if self.load[str(ctx.guild.id)].get(opt) is None:
             self.load[str(ctx.guild.id)][opt]= None
 
         self.load[str(ctx.guild.id)][opt]=str(channel.id)
