@@ -1,5 +1,5 @@
 from discord.ext import commands
-from cogs.utils import date
+from config import date
 import discord
 
 class Easy_Poll(commands.Cog):
