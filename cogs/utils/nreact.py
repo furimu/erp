@@ -23,5 +23,5 @@ def number_react(mes):
     elif k == '8':
         await mes.add_reaction('\u0038\u20e3')
  
-     elif k == '9':
-         await react_mes.add_reaction('\u0039\u20e3')
+    elif k == '9':
+        await react_mes.add_reaction('\u0039\u20e3')
