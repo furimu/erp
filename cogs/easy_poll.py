@@ -1,5 +1,6 @@
 from discord.ext import commands
 from config import date
+from cogs.utils import nreact
 import discord, traceback
 
 class Easy_Poll(commands.Cog):
@@ -24,6 +25,8 @@ class Easy_Poll(commands.Cog):
 
         await channel.send(embed=e)
 
+        for i in [1, 2]:
+            await nreact.
     @yneasy_poll.error
     async def yn_error(self, ctx, error):
         msg=traceback.format_exc()
