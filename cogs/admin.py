@@ -33,7 +33,7 @@ class Admin(commands.Cog, command_attrs=dict(hidden=True)):
 
     @load.error
     async def load_error(self, ctx, error):
-        mes=f'```py\n{traceback.format_exc()}\n```'
+        msg=f'```py\n{traceback.format_exc()}\n```'
         for i in range(0, len(msg), 2000):
             await channel.send(msg[i:i+2000])
 
