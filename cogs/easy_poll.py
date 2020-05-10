@@ -14,8 +14,9 @@ class Easy_Poll(commands.Cog):
         e = discord.Embed(
             title= question,
             description= "**1**:はい, **2**:いいえ")
-
-        if self.load[str(ctx.guild.id)].get("yn") is None:
+        if self.load.get(st(ctx.guild.id) is None:
+            channel = ctx.channel
+        elif self.load[str(ctx.guild.id)].get("yn") is None:
             channel= ctx.channel
 
         else:
