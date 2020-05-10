@@ -43,6 +43,9 @@ class Easy_Poll(commands.Cog):
             
             return
 
+        if self.load.get(str(ctx.guild.id)) is None:
+            self.load[str(ctx.guild.id)]={}
+
         if self.load[str(ctx.guild.id)].get(opt) is None:
             self.load[str(ctx.guild.id)][opt]= None
 
