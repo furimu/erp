@@ -40,7 +40,7 @@ class Easy_Poll(commands.Cog):
             opt= "global"
 
         if opt not in ["global", "yn", "custom"]:
-            await ctx.send("j")
+            
             return
 
         if self.load[str(ctx.guild.id)].get(opt) is None:
