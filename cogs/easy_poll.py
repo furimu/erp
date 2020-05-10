@@ -18,3 +18,8 @@ class Easy_Poll(commands.Cog):
         
 
     @commands.command(aliases=['pc'])
+    async def poll_channel(self, ctx, channel: discord.TextChannel=None):
+        if channel is None:
+            channel = ctx.channel
+
+        
