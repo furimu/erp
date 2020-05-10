@@ -1,6 +1,6 @@
 from discord.ext import commands
 from config import date
-import discord
+import discord, traceback
 
 class Easy_Poll(commands.Cog):
     def __init__(self,bot):
@@ -23,7 +23,11 @@ class Easy_Poll(commands.Cog):
 
         await channel.send(embed=e)
 
-        
+    @yneasy_poll.error
+    async def yn_error(self, ctx, error):
+        msg=traceback.format_exc()
+        for i in range(0, len(msg), 1092):
+            await ctx.channel.send(f'```py\n{msg[i:i+1092]}\n```')
 
     @commands.command(aliases=['pc'])
     async def poll_channel(self, ctx, channel: discord.TextChannel, opt= None):
