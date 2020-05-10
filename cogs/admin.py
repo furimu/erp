@@ -33,8 +33,9 @@ class Admin(commands.Cog, command_attrs=dict(hidden=True)):
 
     @load.error
     async def load_error(self, ctx, error):
-        await ctx.send(f'```py\n{traceback.format_exc()}\n```')
-
+        mes=f'```py\n{traceback.format_exc()}\n```'
+        for i in range(0, len(msg), 2000):
+            await channel.send(msg[i:i+2000])
 
     @commands.command()
     async def cac(self, ctx, category: discord.CategoryChannel, name: str):
