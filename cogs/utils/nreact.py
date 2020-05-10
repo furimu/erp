@@ -1,4 +1,4 @@
-def number_react(mes, k):
+async def number_react(mes, k):
     if k == '1':
         await mes.add_reaction('\u0031\u20e3')
 
