@@ -41,3 +41,6 @@ class Easy_Poll(commands.Cog):
         date.save(self.load, "poll_channel")
 
         await ctx.send(f"{channel.mention}をアンケートチャンネルに設定しました")
+
+def setup(bot):
+    bot.add_cog(Easy_Poll(bot))
