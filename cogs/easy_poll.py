@@ -19,7 +19,7 @@ class Easy_Poll(commands.Cog):
             channel= ctx.channel
 
         else:
-            channel= self.bot?get_channel(int(self.load[str(ctx.guild.id)]["yn"])
+            channel= self.bot.get_channel(int(self.load[str(ctx.guild.id)]["yn"])
 
         await channel.send(embed=e)
 
