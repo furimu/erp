@@ -27,4 +27,6 @@ class Easy_Poll(commands.Cog):
 
         self.load[str(ctx.guild.id)][opt]=str(channel.id)
 
-        self.save(self.load, "poll_channel")
+        date.save(self.load, "poll_channel")
+
+        await ctx.send(f"{channel.mention}をアンケートチャンネルに設定しました")
