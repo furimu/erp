@@ -1,12 +1,9 @@
-import discord
-
 def number_react(mes):
     if k == '1':
         await mes.add_reaction('\u0031\u20e3')
 
     elif k == '2':
-        await
-mes.add_reaction('\u0032\u20e3')
+        await mes.add_reaction('\u0032\u20e3')
  
     elif k == '3':
         await mes.add_reaction('\u0033\u20e3')
