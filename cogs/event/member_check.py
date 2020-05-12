@@ -1,10 +1,11 @@
 from discord.ext import commands, tasks
+from cogs.utils import keys
 import discord
-
 
 class Check_member(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.pro_count= {}
         self.check_member.start()
 
 
@@ -20,7 +21,7 @@ class Check_member(commands.Cog):
             description = '定期でプロフィール未記入者に通知します'
         )
         await channel.send(embed = e)
-        for guild in self.bot.guilds:
+        guild = self.bot.get_guild(ID.mainguild)
             role = discord.utils.get(guild.roles, name = 'not profile')
             if guild.id == 695801973127118899:
                 for member in guild.members:
