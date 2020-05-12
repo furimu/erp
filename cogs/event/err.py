@@ -10,5 +10,9 @@ class Error(commands.Cog):
         input_error = (commands.CommandNotFound, commands.UserInputError
         
         if isinstance(error, commands.CommandNotFound):
-            await ctx.send("そ
-          そのコマンドは存在しないよ！)
+            await ctx.send("そのコマンドは存在しないよ！")
+
+        else:
+            msg=traceback.format_exc()
+            for i in range(0, len(msg), 1092):
+                await ctx.channel.send(f'```py\n{msg[i:i+1092]}\n```')
