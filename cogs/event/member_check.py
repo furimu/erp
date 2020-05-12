@@ -2,6 +2,9 @@ from discord.ext import commands, tasks
 from cogs.utils import keys
 import discord
 
+ID= keys.get_id()
+
+
 class Check_member(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -22,13 +25,15 @@ class Check_member(commands.Cog):
         )
         await channel.send(embed = e)
         guild = self.bot.get_guild(ID.mainguild)
-            role = discord.utils.get(guild.roles, name = 'not profile')
-            if guild.id == 695801973127118899:
-                for member in guild.members:
-                    if any(r.name == role.name for r in member.roles):
-                        
-                        
-                        await channel.send(f'{member.mention}さんプロフィールをお書きください。')
+        role =
+discord.utils.get(guild.roles, name = 'not profile')
+        for member in guild.members:
+            if any(r.name == role.name for r in member.roles):
+                await channel.send(f'{member.mention}さんプロフィールをお書きください。')
+
+        entrance= self.bot.get_channel(ID.entrance)
+        async for message in entrance.history(limit=None):
+            if self.pro_count.get(
 
 
     @check_member.before_loop
