@@ -22,24 +22,6 @@ class ERP(commands.Bot):
             description = mes
         )
         return e
-    
-    async def on_command_error(self, ctx, error):
-        error = getattr(error, 'original', error)
-
-        input_error = (commands.CommandNotFound, commands.UserInputError)
-        Authority = (commands.CommandInvokeError, commands.MissingPermissions)
-
-        if isinstance(error, commands.errors.CheckFailure):
-            return 
-        elif isinstance(error, Authority):
-            await ctx.send('ごめん！君の権限が無いから実行できない！')
-        elif isinstance(error, commands.NoPrivateMessage):
-            await ctx.send('ごめん！このコマンドはプライベートでは使用できない！')
-        elif isinstance(error, commands.DisabledCommand):
-            await ctx.send('ごめん！このコマンドはメンテナンス中で無効化されてる！')
-        elif isinstance(error, discord.errors.Forbidden):
-            await ctx.send('ごめん！僕の権限が無いから変更できなかった！')
-
         
 
     async def on_message(self, mes):
