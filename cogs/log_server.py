@@ -25,12 +25,11 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        log_guild = self.bot.get_guild(696702035399147521)
 
         if member.guild.id != 695801973127118899:
             return
 
-        join_info = self.bot.get_channel(696704172841500692)
+        join_info = self.bot.get_channel(709833551935307817)
         e = discord.Embed(
             description = 'メンバー入出通知'
         )
@@ -43,12 +42,11 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
 
     @commands.Cog.listener()
     async def on_member_remove(self, member):
-        log_guild = self.bot.get_guild(696702035399147521)
 
         if member.guild.id != 695801973127118899:
             return
 
-        join_info = self.bot.get_channel(696704201119498330)
+        join_info = self.bot.get_channel(709834081495679077)
         e = discord.Embed(
             description = 'メンバー退出通知'
         )
