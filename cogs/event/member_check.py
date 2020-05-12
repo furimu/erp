@@ -30,19 +30,19 @@ class Check_member(commands.Cog):
             self.pro_count[str(member.id)]=0
             if any(r.name == role.name for r in member.roles):
                 await channel.send(f'{member.mention}さんプロフィールをお書きください。')
+        try:
+            async for message in channel.history(limit=None):
+                if len(message.mentions) ==0:
+                    return
 
-        async for message in channel.history(limit=None):
-            if len(message.mentions) ==0:
-                return
+                for user in message.mentions:
+                    self.pro_count[str(user.id)] += 1
 
-            for user in message.mentions:
-                self.pro_count[str(user.id)] += 1
+                    if self.pro_count[str(user.id)] <= 3:
+                        await user.klck()
 
-                if self.pro_count[str(user.id)] <= 3:
-                    await user.klck()
-
-                    kick = self.bot.get_channel(CHANNELID.kick)
-                    await kick.send(f"{user.name}{user. discriminator}さんがプロフィールを書かないためキックしました")
+                        kick = self.bot.get_channel(CHANNELID.kick)
+                        await kick.send(f"{user.name}{user. discriminator}さんがプロフィールを書かないためキックしました")
 
         
 
