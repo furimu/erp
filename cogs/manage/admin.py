@@ -34,11 +34,6 @@ class Admin(commands.Cog, command_attrs=dict(hidden=True)):
         
         await ctx.message.add_reaction('\N{WHITE HEAVY CHECK MARK}')
 
-    @load.error
-    async def load_error(self, ctx, error):
-        msg=traceback.format_exc()
-        for i in range(0, len(msg), 1092):
-            await ctx.channel.send(f'```py\n{msg[i:i+1092]}\n```')
 
 
     @commands.command()
