@@ -12,7 +12,7 @@ class Error(commands.Cog):
             await ctx.send("そのコマンドは存在しないよ！")
 
         else:
-            msg= traceback.TracebackException.from_exception(error).format()
+            msg= list(traceback.TracebackException.from_exception(error).format())
             for i in range(0, len(msg), 1092):
                 await ctx.channel.send(f'```py\n{msg[i:i+1092]}\n```')
 
