@@ -4,7 +4,7 @@ import importlib
 import discord
 import traceback
  
-GUILDID, CHANNELID = keys.guild_id(), keys, channel_id()
+GUILDID, CHANNELID = keys.guild_id(), keys.channel_id()
 
 
 class Log_(commands.Cog, command_attrs=dict(hidden=True)):
