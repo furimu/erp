@@ -70,5 +70,9 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
         await join_info.send(embed =e)
 
 
+    @commands.command()
+    async def mr(self, ctx, module):
+        importlib.reload(module) 
+
 def setup(bot):
     bot.add_cog(Log_(bot))
