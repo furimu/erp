@@ -4,7 +4,7 @@ import importlib
 import discord
 import traceback
  
-ID = keys.get_id() 
+GUILDID, CHANNELID = keys.guild_id(), keys, channel_id()
 
 
 class Log_(commands.Cog, command_attrs=dict(hidden=True)):
@@ -17,7 +17,7 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
     @commands.Cog.listener()
     async def on_message(self, mes):
         
-        if mes.channel.id != ID.entrance:
+        if mes.channel.id != CHANNELID.entrance:
             return 
 
         e = discord.Embed(
@@ -26,13 +26,13 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
 
         e.set_author(name=mes.author.name, icon_url=mes.author.avatar_url)
 
-        await self.bot.get_channel(ID.entrance).send(embed=e)
+        await self.bot.get_channel(CHANNELID.entrance).send(embed=e)
 
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
 
-        if member.guild.id != 695801973127118899:
+        if member.guild.id != GUILDID:
             return
 
         join_info = self.bot.get_channel(709833551935307817)
@@ -49,11 +49,11 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
     @commands.Cog.listener()
     async def on_member_remove(self, member):
 
-        if member.guild.id != 695801973127118899:
+        if member.guild.id != GUILDID:
             return
 
 
-        channel = self.bot.get_channel(ID.entrance)
+        channel = self.bot.get_channel(CHANNELID.entrance)
 
         async for message in channel.history(limit=None):
             if message.author.mention in message.content:
