@@ -71,8 +71,9 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
 
 
     @commands.command()
-    async def log_rem(self, ctx, module):
-        importlib.reload(module) 
+    async def log_key(self, ctx):
+        importlib.reload(keys) 
+        await ctx.message.delete()
 
 def setup(bot):
     bot.add_cog(Log_(bot))
