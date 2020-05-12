@@ -71,7 +71,7 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
 
 
     @commands.command()
-    async def mr(self, ctx, module):
+    async def log_rem(self, ctx, module):
         importlib.reload(module) 
 
 def setup(bot):
