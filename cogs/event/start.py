@@ -40,5 +40,5 @@ class Ready(commands.Cog):
 
             except Exception:
                 msg=traceback.format_exc()
-            for i in range(0, len(msg), 1092):
-                await send_error_channel.send(f'```py\n{msg[i:i+1092]}\n```')
+                for i in range(0, len(msg), 1092):
+                    await send_error_channel.send(f'```py\n{msg[i:i+1092]}\n```')
