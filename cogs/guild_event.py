@@ -1,6 +1,9 @@
 from discord.ext import commands
 from config import date
 import discord
+
+black_list= date.load("black_list")
+
 class Guild_Event(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
