@@ -17,7 +17,7 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
     @commands.Cog.listener()
     async def on_message(self, mes):
         
-        if mes.channel.id != 709831686627655742:
+        if mes.channel.id != ID.entrance:
             return 
 
         e = discord.Embed(
@@ -26,7 +26,7 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
 
         e.set_author(name=mes.author.name, icon_url=mes.author.avatar_url)
 
-        await self.bot.get_channel(709831686627655742).send(embed=e)
+        await self.bot.get_channel(ID.entrance).send(embed=e)
 
 
     @commands.Cog.listener()
@@ -53,7 +53,7 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
             return
 
 
-        channel = self.bot.get_channel(696059891256656003)
+        channel = self.bot.get_channel(ID.entrance)
 
         async for message in channel.history(limit=None):
             if message.author.mention in message.content:
