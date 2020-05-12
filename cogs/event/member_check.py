@@ -42,7 +42,8 @@ discord.utils.get(guild.roles, name = 'not profile')
                 if self.pro_count[str(user.id)] <= 3:
                     await user.klck()
 
-                    
+                    kick = self.bot.get_channel(CHANNELID.kick)
+                    await kick.send(f"{user.name}{user. discriminator｝さんがプロフィールを書かないためキックしました")
 
         
 
