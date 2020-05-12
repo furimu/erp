@@ -84,9 +84,8 @@ class Admin(commands.Cog, command_attrs=dict(hidden=True)):
         if opt == 'y':
             await ctx.send('@everyone', embed=self.bot.default_embed(mes))
 
-        if opt == 'n':
-            await
-ctx.send(embed=self.bot.default_embed(mes))
+        elif opt == 'n':
+            await ctx.send(embed=self.bot.default_embed(mes))
 
 
     @commands.command(aliases = ['nm'])
