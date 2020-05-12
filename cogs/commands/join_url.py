@@ -34,9 +34,7 @@ class join(commands.Cog):
         await ctx.send(f'<{utils.oauth_url(botinfo.client_id, perms)}>')
 
 
-    @join.error
-    async def join_error(self, ctx, error):
-        await ctx.send(f'```py\n{traceback.format_exc()}\n```')
+   
 
 
 def setup(bot):
