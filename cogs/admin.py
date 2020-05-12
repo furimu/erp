@@ -52,7 +52,16 @@ class Admin(commands.Cog, command_attrs=dict(hidden=True)):
     async def mr(self, ctx):
         importlib.reload(check)
         
-
+    @commands.command()
+    async def gs(self, ctx):
+        e=discord.Embed(
+            title="サーバー一覧)
+        for s in self.bot.guilds:
+            e.add_field(
+                name=s.name,
+                value=s.id,
+                inline=False)
+        await ctx.send(embed=e)
         
     @commands.command()
     async def restart(self, ctx):
