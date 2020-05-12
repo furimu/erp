@@ -29,7 +29,6 @@ cogs = [
 ]
 
 spamer = date.load('spamer')
-black_list= date.load("black_list")
 class ERP(commands.Bot):
     def __init__(self):
         super().__init__(command_prefix = 'e!', description = botinfo.description, help_attrs=dict(hidden=True))
@@ -86,16 +85,6 @@ class ERP(commands.Bot):
             return
         await self.process_commands(mes)
 
-    
-    #以下のイベントはブラックリスト処理
-    async def on_guild_join(self, guild):
-        if black_list.get(str(guild.id)) not is None:
-            if black_list[str(guild.id)]== "red":
-                await guild.leave()
-
-
-    async def on_guild_remove(self, guild):
-        pass
 
 
     async def start(self):
