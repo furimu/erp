@@ -1,6 +1,12 @@
 from discord.ext import commands, tasks
+from cogs.utils import keys
+
 import discord
 import traceback
+ 
+ID = keys.get_id() 
+
+
 class Log_(commands.Cog, command_attrs=dict(hidden=True)):
     def __init__(self, bot):
         self.bot = bot
