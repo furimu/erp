@@ -18,7 +18,6 @@ cogs = [
     'commands.music',
     'event.reaction_role',
     'commands.returnname',
-    'manage.setting',
     'spam'
 ]
 
