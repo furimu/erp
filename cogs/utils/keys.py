@@ -12,3 +12,6 @@ def channel_id():
         'entrance': 696059891256656003
     })
 
+def account_id():
+    return AttrDict({
+        'fulute': 650249780072677378
