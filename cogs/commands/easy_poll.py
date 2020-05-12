@@ -28,11 +28,7 @@ class Easy_Poll(commands.Cog):
         await mes.add_reaction('\u0031\u20e3')
 
         await mes.add_reaction('\u0032\u20e3')
-    @yneasy_poll.error
-    async def yn_error(self, ctx, error):
-        msg=traceback.format_exc()
-        for i in range(0, len(msg), 1092):
-            await ctx.channel.send(f'```py\n{msg[i:i+1092]}\n```')
+   
 
     @commands.command(aliases=['pc'])
     async def poll_channel(self, ctx, channel: discord.TextChannel, opt= None):
@@ -55,11 +51,6 @@ class Easy_Poll(commands.Cog):
 
         await ctx.send(f"{channel.mention}をアンケートチャンネルに設定しました")
 
-    @poll_channel.error
-    async def pc_error(self, ctx, error):
-        msg=traceback.format_exc()
-        for i in range(0, len(msg), 1092):
-            await ctx.channel.send(f'```py\n{msg[i:i+1092]}\n```')
 
 def setup(bot):
     bot.add_cog(Easy_Poll(bot))
