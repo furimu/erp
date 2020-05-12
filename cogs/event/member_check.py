@@ -42,7 +42,7 @@ class Check_member(commands.Cog):
                     await user.klck()
 
                     kick = self.bot.get_channel(CHANNELID.kick)
-                    await kick.send(f"{user.name}{user. discriminator｝さんがプロフィールを書かないためキックしました")
+                    await kick.send(f"{user.name}{user. discriminator}さんがプロフィールを書かないためキックしました")
 
         
 
