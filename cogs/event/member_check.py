@@ -44,6 +44,9 @@ class Check_member(commands.Cog):
                         kick = self.bot.get_channel(CHANNELID.kick)
                         await kick.send(f"{user.name}{user. discriminator}さんがプロフィールを書かないためキックしました")
 
+        except:
+            error = self.bot.get_channel(CHANNELID.error)
+            695803169678163970
         
 
 
