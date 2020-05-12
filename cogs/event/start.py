@@ -9,8 +9,8 @@ cogs = [
     'event.err',
     'commands.easy_poll',
     'event.guild_event',
-    'cogs.log_server',
-    'commandg.join_url',
+    'log_server',
+    'command.join_url',
     'event.member_event',
     'event.member_check',
     'event.mes',
@@ -19,7 +19,7 @@ cogs = [
     'event.reaction_role',
     'commands.returnname',
     'manage.setting',
-    'cogs.spam'
+    'spam'
 ]
 
 class Ready(commands.Cog):
