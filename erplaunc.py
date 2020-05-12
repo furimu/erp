@@ -7,53 +7,15 @@ import discord
 import asyncio
 
 prefixes = date.load('prefix')
-
-cogs = [
-    'cogs.admin',
-    'cogs.anonymous',
-    'cogs.auto_channel',
-    'cogs.bumper',
-    'cogs.counter',
-    'cogs.guild_event',
-    'cogs.log_server',
-    'cogs.join_url',
-    'cogs.member_event',
-    'cogs.member_check',
-    'cogs.mes',
-    'cogs.moveer',
-    'cogs.music',
-    'cogs.reaction_role',
-    'cogs.returnname',
-    'cogs.setting',
-    'cogs.spam'
-]
-
 spamer = date.load('spamer')
+
 class ERP(commands.Bot):
     def __init__(self):
         super().__init__(command_prefix = 'e!', description = botinfo.description, help_attrs=dict(hidden=True))
 
         self.token = botinfo.token
+        self.load_extension(f"cogs.event.start")
 
-        
-    
-    async def on_ready(self):
-        print('起動が完了しました!')
-
-        for guild in self.guilds:
-            if spamer.get(str(guild.id)):
-                spamer.pop(str(guild.id))
-                date.save(spamer, 'spamer')
-        send_error_channel = self.get_channel(695803169678163970)
-        await send_error_channel.send('新規エラー')
-        for cog in cogs:
-            try:
-                self.load_extension(cog)
-            except commands.ExtensionAlreadyLoaded:
-                pass
-
-            except Exception:
-                await send_error_channel.send(f'```py\n{traceback.format_exc()}\n```')
 
     async def default_embed(self, mes: str):
         e = discord.Embed(
