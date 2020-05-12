@@ -36,7 +36,7 @@ class Check_member(commands.Cog):
                 return
 
             for user in message.mentions:
-            self.pro_count[str(user.id)] += 1
+                self.pro_count[str(user.id)] += 1
 
                 if self.pro_count[str(user.id)] <= 3:
                     await user.klck()
