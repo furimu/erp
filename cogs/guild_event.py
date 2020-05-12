@@ -14,7 +14,7 @@ class Guild_Event(commands.Cog):
         if guild.id != 695801973127118899:
             return
 
-        if black_list.get(str(guild.id)) not is None:
+        if black_list.get(str(guild.id)) is not None:
             if black_list[str(guild.id)]== "red":
                 return await guild.leave()
         
