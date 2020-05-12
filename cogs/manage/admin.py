@@ -79,6 +79,15 @@ class Admin(commands.Cog, command_attrs=dict(hidden=True)):
         os.system('cals')
         subprocess.run("launc.py", shell=True)
 
+    @commands.command(aliases=["sn"]
+    async def  send_embed(self, ctx, opt, *, mes):
+        if opt == 'y':
+            await ctx.send('@everyone', embed=self.bot.default_embed(mes))
+
+        if opt == 'n':
+            await
+ctx.send(embed=self.bot.default_embed(mes))
+
 
     @commands.command(aliases = ['nm'])
     async def nomal_mes(self, ctx, channel: discord.TextChannel, *, contents: str):
