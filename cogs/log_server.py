@@ -35,7 +35,7 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
         if member.guild.id != GUILDID:
             return
 
-        join_info = self.bot.get_channel(709833551935307817)
+        join_info = self.bot.get_channel(CHANNELID.joinlog)
         e = discord.Embed(
             description = 'メンバー入出通知'
         )
@@ -61,13 +61,13 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
 
        
 
-        join_info = self.bot.get_channel(709834081495679077)
+        remove_info = self.bot.get_channel(CHANNELID.removelog)
         e = discord.Embed(
             description = 'メンバー退出通知'
         )
 
         e.set_author(name=member.name, icon_url=member.avatar_url)
-        await join_info.send(embed =e)
+        await remove_info.send(embed =e)
 
 
     @commands.command()
