@@ -1,10 +1,13 @@
 from discord.ext import commands
 from cogs.utils import check
+from config import date
 import discord
 import traceback
 import os
 import subprocess
 import importlib
+
+black_list= date.load("black_list") 
 
 class Admin(commands.Cog, command_attrs=dict(hidden=True)):
     def __init__(self, bot):
@@ -37,16 +40,6 @@ class Admin(commands.Cog, command_attrs=dict(hidden=True)):
         for i in range(0, len(msg), 1092):
             await ctx.channel.send(f'```py\n{msg[i:i+1092]}\n```')
 
-    @commands.command()
-    async def cac(self, ctx, category: discord.CategoryChannel, name: str):
-        await category.create_text_channel(name=name)
-        await ctx.send("ok")
-    @commands.command()
-    async def ctx_repeat(self, ctx):
-        if await check.original_command_permissions(ctx) == False:
-            return
-            
-        await ctx.send(ctx.command)
 
     @commands.command()
     async def mr(self, ctx):
@@ -62,33 +55,30 @@ class Admin(commands.Cog, command_attrs=dict(hidden=True)):
                 value=s.id,
                 inline=False)
         await ctx.send(embed=e)
+
+
+    @commands.command()
+    async def add_black_server(self, ctx, guild:discord.Guild, opt: None):
+        if opt is None:
+            opt= "red"
+        
+        black_list[str(guild.id)]= opt
+
+        date.save(black_list, "black_list")
+
+        for server in self.bot.guilds:
+            if server.id == guild.id:
+                await guild.leave()
+
+        await ctx.send(f"{guild.name}をブラックリストに登録しました")
+
+
         
     @commands.command()
     async def restart(self, ctx):
         os.system('cals')
         subprocess.run("launc.py", shell=True)
 
-    
-    @commands.command(aliases = ['sn'])
-    async def send_notice(self, ctx, channel: discord.TextChannel, *, contents: str):
-        
-        e = discord.Embed(
-            description = contents
-        )
-        await channel.send('@everyone\n', embed = e)
-
-    @send_notice.error
-    async def sn_error(self, ctx, error):
- 
-        await ctx.send(f'```py\n{traceback.format_exc()}\n```')
-
-    @commands.command(aliases = ['ne'])
-    async def nomal_embed(self, ctx, channel: discord.TextChannel, *, contents: str):
-        
-        e = discord.Embed(
-            description = contents
-        )
-        await channel.send(embed = e)
 
     @commands.command(aliases = ['nm'])
     async def nomal_mes(self, ctx, channel: discord.TextChannel, *, contents: str):
