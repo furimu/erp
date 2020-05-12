@@ -3,7 +3,7 @@ from attrdict import AttrDict
 def guild_id():
     return AttrDict({
         'mainguild': 695801973127118899
-})
+    })
 
 def channel_id():
     return AttrDict({
