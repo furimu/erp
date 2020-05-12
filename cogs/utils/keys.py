@@ -14,4 +14,6 @@ def channel_id():
 
 def account_id():
     return AttrDict({
-        'fulute': 650249780072677378
+        'fulute': 650249780072677378,
+        'furimu': 386289367955537930
+    })
