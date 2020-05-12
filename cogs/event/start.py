@@ -6,6 +6,7 @@ cogs = [
     'event.auto_channel',
     'event.bumper',
     'event.counter',
+    'event.err',
     'commands.easy_poll',
     'event.guild_event',
     'cogs.log_server',
