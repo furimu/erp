@@ -4,7 +4,7 @@ import importlib
 import discord
 import traceback
  
-GUILDID, CHANNELID = keys.guild_id(), keys.channel_id()
+GUILDID, CHANNELID ACCOUNTID= keys.guild_id(), keys.channel_id(), keys.account_id()
 
 
 class Log_(commands.Cog, command_attrs=dict(hidden=True)):
@@ -12,7 +12,7 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
         self.bot = bot
 
     async def cog_check(self, ctx):
-        return ctx.author.id == 650249780072677378 or ctx.author.id == 386289367955537930
+        return ctx.author.id == ACCOUNTID.fulute or ctx.author.id == ACCOUNTID.furimu
 
     @commands.Cog.listener()
     async def on_message(self, mes):
