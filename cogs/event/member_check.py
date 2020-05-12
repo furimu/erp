@@ -33,7 +33,7 @@ class Check_member(commands.Cog):
         try:
             async for message in channel.history(limit=None):
                 if len(message.mentions) ==0:
-                    return
+                    continue
 
                 for user in message.mentions:
                     self.pro_count[str(user.id)] += 1
