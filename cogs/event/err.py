@@ -7,8 +7,6 @@ class Error(commands.Cog):
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         error = getattr(error, 'original', error)
- 
-        input_error = (commands.CommandNotFound, commands.UserInputError
         
         if isinstance(error, commands.CommandNotFound):
             await ctx.send("そのコマンドは存在しないよ！")
