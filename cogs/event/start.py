@@ -10,7 +10,7 @@ cogs = [
     'commands.easy_poll',
     'event.guild_event',
     'log_server',
-    'command.join_url',
+    'commands.join_url',
     'event.member_event',
     'event.member_check',
     'event.mes',
