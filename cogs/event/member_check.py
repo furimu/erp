@@ -25,8 +25,7 @@ class Check_member(commands.Cog):
         )
         await channel.send(embed = e)
         guild = self.bot.get_guild(GUILDID.mainguild)
-        role =
-discord.utils.get(guild.roles, name = 'not profile')
+        role =discord.utils.get(guild.roles, name = 'not profile')
         for member in guild.members:
             self.pro_count[str(member.id)]=0
             if any(r.name == role.name for r in member.roles):
