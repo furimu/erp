@@ -18,6 +18,9 @@ class Multi_Eroype_Server(commands.Cog):
         channel: 名前・ID・メンション
         limit: int = None 
         """
+        if channel is None:
+            channel= ctx.channel
+
         await channel.purge(limit = limit)
 
 
