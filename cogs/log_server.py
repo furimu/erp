@@ -8,52 +8,19 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
     async def cog_check(self, ctx):
         return ctx.author.id == 650249780072677378 or ctx.author.id == 386289367955537930
 
-    @commands.command(aliases = ['cc'])
-    async def copy_c(self, ctx, trype: str, channel: str):
-        """ログ鯖にバックアップ用のチャンネルを作成
-        
-        引数にtypeを指定\n チャンネル名を指定
-
-        trype: str
-        channel: str
-         別名: cc
-        """
-        log_guild = self.bot.get_guild(696702035399147521)
-
-        if trype == 'category':
-            await log_guild.create_category_channel(name = channel)
-
-        elif trype == 'text':
-            for category in log_guild.categories:
-                if category.name == ctx.channel.category.name:
-                    await category.create_text_channel(name = channel)
-
-
-    @copy_c.error
-    async def copy_c_error(self, ctx, error):
-        await ctx.send(f'```py\n{traceback.format_exc()}\n```')
-
     @commands.Cog.listener()
     async def on_message(self, mes):
-        log_guild = self.bot.get_guild(696702035399147521)
-        if isinstance(mes.channel, discord.DMChannel):
-            return
-        if mes.guild.id != 695801973127118899:
-            return
-
-        log_guild_mes_channel = discord.utils.get(log_guild.text_channels, name = mes.channel.name)
-
-        if log_guild_mes_channel is None:
-            return
+        
+        if mes.channel.id != 709831686627655742:
+            return 
 
         e = discord.Embed(
             description = mes.content
         )
 
         e.set_author(name=mes.author.name, icon_url=mes.author.avatar_url)
- 
 
-        await log_guild_mes_channel.send(embed =e)
+        await self.bot.get_channel(709831686627655742).send(embed=e)
 
 
     @commands.Cog.listener()
