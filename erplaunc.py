@@ -17,7 +17,7 @@ class ERP(commands.Bot):
         self.load_extension(f"cogs.event.start")
 
 
-    async def default_embed(self, mes: str):
+    def default_embed(self, mes: str):
         e = discord.Embed(
             description = mes
         )
