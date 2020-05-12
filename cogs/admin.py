@@ -55,7 +55,7 @@ class Admin(commands.Cog, command_attrs=dict(hidden=True)):
     @commands.command()
     async def gs(self, ctx):
         e=discord.Embed(
-            title="サーバー一覧)
+            title="サーバー一覧")
         for s in self.bot.guilds:
             e.add_field(
                 name=s.name,
