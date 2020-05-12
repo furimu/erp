@@ -48,7 +48,7 @@ class Check_member(commands.Cog):
             error = self.bot.get_channel(CHANNELID.error)
             msg= list(traceback.TracebackException.from_exception(error).format())
             for i in range(0, len(msg), 1092):
-                await errorsend(f'```py\n{msg[i:i+1092]}\n```')
+                await error.send(f'```py\n{msg[i:i+1092]}\n```')
         
 
 
