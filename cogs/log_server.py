@@ -43,14 +43,17 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
     @commands.Cog.listener()
     async def on_member_remove(self, member):
 
+        if member.guild.id != 695801973127118899:
+            return
+
+
         channel = self.bot.get_channel(696059891256656003)
 
         async for message in channel.history(limit=None):
             if message.author.mention in message.content:
                 await message.delete()
 
-        if member.guild.id != 695801973127118899:
-            return
+       
 
         join_info = self.bot.get_channel(709834081495679077)
         e = discord.Embed(
