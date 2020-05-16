@@ -77,10 +77,10 @@ class Admin(commands.Cog, command_attrs=dict(hidden=True)):
     @commands.command(aliases=["sn"])
     async def  send_embed(self, ctx, channel: discord.TextChannel, opt, *, mes):
         if opt == 'y':
-            await ctx.send('@everyone', embed=self.bot.default_embed(mes))
+            await channel.send('@everyone', embed=self.bot.default_embed(mes))
 
         elif opt == 'n':
-            await ctx.send(embed=self.bot.default_embed(mes))
+            await channel.send(embed=self.bot.default_embed(mes))
 
 
     @commands.command(aliases = ['nm'])
