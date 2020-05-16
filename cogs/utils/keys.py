@@ -9,7 +9,7 @@ def channel_id():
     return AttrDict({
         'profile': 699031258201718846,
         'update_news_channel': 693861839322218567,
-        'entrance': 696059891256656003,
+        'entrance': 711028244228341782,
         'entrancelog': 709831686627655742,
         'joinlog': 709833551935307817,
         'removelog': 709834081495679077,
