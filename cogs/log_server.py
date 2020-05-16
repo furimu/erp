@@ -26,7 +26,7 @@ class Log_(commands.Cog, command_attrs=dict(hidden=True)):
 
         e.set_author(name=mes.author.name, icon_url=mes.author.avatar_url)
 
-        await self.bot.get_channel(CHANNELID.entrance).send(embed=e)
+        await self.bot.get_channel(CHANNELID.entrancelog).send(embed=e)
 
 
     @commands.Cog.listener()
