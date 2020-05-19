@@ -1,6 +1,5 @@
 from discord.ext import commands
 from config import date
-from cogs import help_
 import botinfo
 import traceback
 import discord
