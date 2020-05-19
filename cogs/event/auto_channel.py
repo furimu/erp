@@ -251,7 +251,7 @@ class Auto_Create_Setting(commands.Cog):
         if mes.content.startswith('e!'):
             return
 
-        if message.embeds:
+        if mes.embeds:
             return
 
         if not self.create_text.get(str(mes.guild.id)):
