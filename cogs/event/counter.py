@@ -378,7 +378,7 @@ class Counter(commands.Cog):
 
         voice = self.bot.get_channel(int(self.counter[guild_id]['voice_id']))
          
-        await voice.edit(name = f'サーバー人数{guild.member_count}')
+        await voice.edit(name = f'サーバー人数{member.guild.member_count}')
 
 
 
