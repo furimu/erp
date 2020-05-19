@@ -314,7 +314,7 @@ class Auto_Create_Setting(commands.Cog):
     
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
-    if self.new_text.get(str(payload.member.guild.id)) is None:
+        if self.new_text.get(str(payload.member.guild.id)) is None:
             return
 
         if self.new_text[str(payload.member.guild.id)][str(payload.member.id)].get('new_channel') is None:
