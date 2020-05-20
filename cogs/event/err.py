@@ -23,7 +23,7 @@ class Error(commands.Cog):
 
         msg= list(traceback.TracebackException.from_exception(error).format())
         for i in range(0, len(msg), 1092):
-            await ctx.channel.send(f'```py\n{msg[i:i+1092]}\n```')
+            await err.send(f'```py\n{msg[i:i+1092]}\n```')
 
 def setup(bot):
     bot.add_cog(Error(bot))
