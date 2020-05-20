@@ -19,7 +19,7 @@ class Error(commands.Cog):
 
     @commands.Cog.listener():
     async def on_error(self, event, *args, **kwargs):
-    err=self.bot.get_channel(695803169678163970)
+        err=self.bot.get_channel(695803169678163970)
 
         msg= list(traceback.TracebackException.from_exception(error).format())
         for i in range(0, len(msg), 1092):
