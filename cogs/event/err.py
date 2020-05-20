@@ -17,7 +17,7 @@ class Error(commands.Cog):
                 await ctx.channel.send(f'```py\n{msg[i:i+1092]}\n```')
 
 
-    @commands.Cog.listener():
+    @commands.Cog.listener()
     async def on_error(self, event, *args, **kwargs):
         err=self.bot.get_channel(695803169678163970)
 
