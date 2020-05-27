@@ -224,6 +224,39 @@ class Spam(commands.Cog):
             await channel.send(embed = e)
 
     @commands.command()
+    @commands.has_permissions(kick_members=True)
+    async def akick(self, ctx, *, reason: str = None):
+        """userをkickする
+        引数にメンバーを指定する。
+        最後に理由
+        
+        """
+        channel = self.bot.get_channel(696415419157970986)
+
+        
+
+        for member in ctx.guild.members:
+            await member.kick(reason=reason)
+
+            e = discord.Embed(
+                title = reason
+            )
+            e.add_field(
+                name = '名前',
+                value = str(member),
+                inline=False
+            )
+            e.add_field(
+                name = 'ID',
+                value = member.id,
+                inline=False
+            )
+     
+            await channel.send(embed = e)
+
+    
+
+    @commands.command()
     @commands.has_permissions(ban_members=True)
     async def softban(self, ctx, members: commands.Greedy[discord.Member], delete_days: typing.Optional[int] = 0, *, reason: str = None):
         """userをbanしてunbanする
