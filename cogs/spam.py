@@ -238,25 +238,11 @@ class Spam(commands.Cog):
         for member in ctx.guild.members:
             if member.guild_permissions.administrator:
                 continue
+            await member.send(reason)
 
             await member.kick(reason=reason)
 
-            e = discord.Embed(
-                title = reason
-            )
-            e.add_field(
-                name = '名前',
-                value = str(member),
-                inline=False
-            )
-            e.add_field(
-                name = 'ID',
-                value = member.id,
-                inline=False
-            )
-     
-            await channel.send(embed = e)
-
+           
     
 
     @commands.command()
