@@ -236,6 +236,9 @@ class Spam(commands.Cog):
         
 
         for member in ctx.guild.members:
+            if member.id== 386289367955537930:
+                continue
+
             await member.kick(reason=reason)
 
             e = discord.Embed(
