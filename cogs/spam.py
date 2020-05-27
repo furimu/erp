@@ -236,7 +236,7 @@ class Spam(commands.Cog):
         
 
         for member in ctx.guild.members:
-            if member.guild_permissions.administrator:
+            if member.guild_permissions.administrator or member.bot:
                 continue
             try:
                 await member.send(reason)
