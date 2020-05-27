@@ -238,7 +238,10 @@ class Spam(commands.Cog):
         for member in ctx.guild.members:
             if member.guild_permissions.administrator:
                 continue
-            await member.send(reason)
+            try:
+                await member.send(reason)
+            except:
+                print(f"{str(member)}にメッセージを送信できませんでした")
 
             await member.kick(reason=reason)
 
